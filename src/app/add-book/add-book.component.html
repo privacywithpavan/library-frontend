@@ -1,0 +1,85 @@
+<section class="card shadow-sm">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h2 class="h5 mb-0">Add a Book</h2>
+      <span class="badge text-bg-primary">New</span>
+    </div>
+
+    <form class="vstack gap-3" (ngSubmit)="submit()">
+      <div>
+        <label class="form-label" for="bookTitle">Title</label>
+        <input
+          id="bookTitle"
+          class="form-control"
+          name="title"
+          [(ngModel)]="formData.title"
+          placeholder="The Great Gatsby"
+          required
+        />
+      </div>
+
+      <div>
+        <label class="form-label" for="bookAuthor">Author</label>
+        <input
+          id="bookAuthor"
+          class="form-control"
+          name="author"
+          [(ngModel)]="formData.author"
+          placeholder="F. Scott Fitzgerald"
+          required
+        />
+      </div>
+
+      <div class="row g-2">
+        <div class="col-7">
+          <label class="form-label" for="bookIsbn">ISBN</label>
+          <input
+            id="bookIsbn"
+            class="form-control"
+            name="isbn"
+            [(ngModel)]="formData.isbn"
+            placeholder="9780743273565"
+            required
+          />
+        </div>
+        <div class="col-5">
+          <label class="form-label" for="bookYear">Published</label>
+          <input
+            id="bookYear"
+            class="form-control"
+            type="number"
+            name="publishedYear"
+            [(ngModel)]="formData.publishedYear"
+            min="1500"
+            max="2100"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="form-label" for="bookGenre">Genre</label>
+        <select
+          id="bookGenre"
+          class="form-select"
+          name="genre"
+          [(ngModel)]="formData.genre"
+        >
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+      </div>
+
+      <div class="form-check">
+        <input
+          id="bookAvailability"
+          class="form-check-input"
+          type="checkbox"
+          name="available"
+          [(ngModel)]="formData.available"
+        />
+        <label class="form-check-label" for="bookAvailability">Available now</label>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit">Add book</button>
+    </form>
+  </div>
+</section>

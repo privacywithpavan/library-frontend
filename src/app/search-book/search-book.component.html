@@ -1,0 +1,29 @@
+<section class="card shadow-sm">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h2 class="h5 mb-0">Search by ISBN</h2>
+      <span class="badge text-bg-info">Lookup</span>
+    </div>
+
+    <div *ngIf="hasSearched" class="mt-4">
+      <div *ngIf="foundBook; else notFound" class="alert alert-success mb-0">
+        <div class="d-flex justify-content-between flex-wrap gap-2">
+          <div>
+            <div class="fw-semibold">{{ foundBook.title }}</div>
+            <div class="small text-muted">{{ foundBook.author }} · {{ foundBook.genre }}</div>
+          </div>
+          <span class="badge" [class.text-bg-success]="foundBook.available" [class.text-bg-warning]="!foundBook.available">
+            {{ foundBook.available ? 'Available' : 'Checked out' }}
+          </span>
+        </div>
+        <div class="small mt-2">ISBN {{ foundBook.isbn }} · Published {{ foundBook.publishedYear }}</div>
+      </div>
+
+      <ng-template #notFound>
+        <div class="alert alert-warning mb-0">
+          No book found with that ISBN. Try again or add the book to the catalog.
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
