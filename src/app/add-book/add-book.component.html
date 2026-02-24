@@ -2,7 +2,6 @@
   <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h2 class="h5 mb-0">Add a Book</h2>
-      <span class="badge text-bg-primary">New</span>
     </div>
 
     <form class="vstack gap-3" (ngSubmit)="submit()">
@@ -13,7 +12,7 @@
           class="form-control"
           name="title"
           [(ngModel)]="formData.title"
-          placeholder="The Great Gatsby"
+          placeholder="Real-World Cryptography"
           required
         />
       </div>
@@ -25,7 +24,7 @@
           class="form-control"
           name="author"
           [(ngModel)]="formData.author"
-          placeholder="F. Scott Fitzgerald"
+          placeholder="David Wong"
           required
         />
       </div>
@@ -38,7 +37,7 @@
             class="form-control"
             name="isbn"
             [(ngModel)]="formData.isbn"
-            placeholder="9780743273565"
+            placeholder="9781617296710"
             required
           />
         </div>
@@ -57,14 +56,14 @@
       </div>
 
       <div>
-        <label class="form-label" for="bookGenre">Genre</label>
+        <label class="form-label" for="bookCategory">Category</label>
         <select
-          id="bookGenre"
+          id="bookCategory"
           class="form-select"
-          name="genre"
-          [(ngModel)]="formData.genre"
+          name="category"
+          [(ngModel)]="formData.category"
         >
-          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
       </div>
 

@@ -16,12 +16,12 @@ export class AddBookComponent {
     title: '',
     author: '',
     isbn: '',
-    genre: 'Fiction',
+    category: 'Cryptography',
     publishedYear: new Date().getFullYear(),
     available: true,
   };
 
-  protected genres = ['Fiction', 'Non-Fiction', 'Mystery', 'Romance', 'Sci-Fi', 'Fantasy'];
+  protected categories = ['Data Engineering', 'Artificial Intelligence (AI)', 'Distributed Systems', 'Cryptography'];
 
   constructor(private readonly bookStore: BookStoreService) {}
 
@@ -34,7 +34,7 @@ export class AddBookComponent {
       title: this.formData.title.trim(),
       author: this.formData.author.trim(),
       isbn: this.formData.isbn.trim(),
-      genre: this.formData.genre,
+      category: this.formData.category,
       publishedYear: this.formData.publishedYear,
       available: this.formData.available,
     });
@@ -43,7 +43,7 @@ export class AddBookComponent {
       title: '',
       author: '',
       isbn: '',
-      genre: 'Fiction',
+      category: 'Fiction',
       publishedYear: new Date().getFullYear(),
       available: true,
     };
